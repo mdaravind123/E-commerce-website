@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Imageslider from "../components/imageslider";
+import Productlist from "../components/productlist";
 import Footer from "../components/footer";
 
 const Home: React.FC = () => {
@@ -8,6 +9,7 @@ const Home: React.FC = () => {
     <div>
       <Navbar />
       <Imageslider />
+      <Productlist />
       <Footer />
     </div>
   );

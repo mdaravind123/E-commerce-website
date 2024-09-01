@@ -6,21 +6,26 @@ import { faKey } from "@fortawesome/free-solid-svg-icons";
 const Login: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen w-full gap-2">
-      <div className="flex items-center gap-2 border border-[hsla(0,0%,0%,0.5)] p-2">
-        <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6 text-slate-600" />
-        <input
-          type="email"
-          className="w-[320px] outline-none"
-          placeholder="Email"
-        />
-      </div>
-      <div className="flex items-center gap-2 border border-[hsla(0,0%,0%,0.5)] p-2">
-        <FontAwesomeIcon icon={faKey} className="w-6 h-6 text-slate-600" />
-        <input
-          type="password"
-          className="w-[320px] outline-none"
-          placeholder="Password"
-        />
+      <div className="flex flex-col gap-2 w-[420px] justify-center items-center border border-[hsla(0,0%,0%,0.5)] h-[420px]">
+        <div className="flex items-center gap-2 border border-[hsla(0,0%,0%,0.5)] p-2">
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            className="w-6 h-6 text-slate-600"
+          />
+          <input
+            type="email"
+            className="w-[320px] outline-none"
+            placeholder="Email"
+          />
+        </div>
+        <div className="flex items-center gap-2 border border-[hsla(0,0%,0%,0.5)] p-2">
+          <FontAwesomeIcon icon={faKey} className="w-6 h-6 text-slate-600" />
+          <input
+            type="password"
+            className="w-[320px] outline-none"
+            placeholder="Password"
+          />
+        </div>
       </div>
     </div>
   );
