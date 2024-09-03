@@ -1,49 +1,42 @@
 import React, { useEffect, useState } from "react";
 import products from "../interface/products";
-import axios from "axios";
+import dummydata from "../data/dummydata.json";
 
 const Productlist: React.FC = () => {
   const [data, setData] = useState<products[]>([]);
-
-  const dummydata = async () => {
-    try {
-      const response = await axios.get(
-        "https://api.escuelajs.co/api/v1/products"
-      );
-
-      // Parse and sanitize the images array
-      const sanitizedData = response.data.map((item: products) => ({
-        ...item,
-        images: item.images.flatMap((img: string) => {
-          // Remove any extraneous quotes or brackets
-          return img.replace(/['"\[\]]/g, "").split(",");
-        }),
-      }));
-
-      setData(sanitizedData);
-    } catch (err) {
-      console.log(err);
-    }
+  const productdata = async () => {
+    let product: products[] = dummydata;
+    return product;
   };
-
   useEffect(() => {
-    dummydata();
+    const fetchdata = async () => {
+      const product = await productdata();
+      setData(product);
+    };
+    fetchdata();
   }, []);
-
   return (
-    <div className="grid grid-cols-4 gap-4 p-4">
-      {data.map((item) => (
-        <div key={item.id} className="border p-4 rounded-lg shadow-md">
-          <img
-            src={item.images[0]}
-            alt={item.title}
-            className="w-full h-48 object-cover rounded-t-lg"
-          />
-          <h2 className="text-lg font-semibold mt-2">{item.title}</h2>
-          <p className="text-gray-700 mt-1">${item.price}</p>
-          <p className="text-sm text-gray-500 mt-2">{item.description}</p>
-        </div>
-      ))}
+    <div className="2xl:container mx-auto mt-10">
+      <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {data.map((item: products) => {
+          return (
+            <div
+              key={item.id}
+              className="border border-slate-300 py-5 flex flex-col items-center justify-center rounded gap-2"
+            >
+              <img
+                src={item.images}
+                alt="phone"
+                className="w-[300px] h-[350px]"
+              />
+              <p className="text-black font-medium text-[18px] w-[300px] text-center">
+                {item.title}
+              </p>
+              <p className="text-green-600 text-[20px]">{item.price}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
