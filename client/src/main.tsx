@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import Login from "./pages/login.tsx";
+import Productdetail from "./components/productdetail.tsx";
 import "./styles/index.css";
 
 const router = createBrowserRouter([
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/products/:id",
+    element: <Productdetail />,
   },
 ]);
 
