@@ -2,5 +2,7 @@ export default interface products {
   id: number;
   title: string;
   price: string;
-  images: string;
+  imageurl: string;
+  description?: string;
+  ratings?: number;
 }

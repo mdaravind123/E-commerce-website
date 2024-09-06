@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from "react";
 import products from "../interface/products";
-import dummydata from "../data/dummydata.json";
+import axios from "axios";
 
 const Productlist: React.FC = () => {
   const [data, setData] = useState<products[]>([]);
   const productdata = async () => {
-    let product: products[] = dummydata;
-    return product;
+    let product = await axios.get<products[]>("http://localhost:3333/");
+    setData(product.data);
   };
   useEffect(() => {
-    const fetchdata = async () => {
-      const product = await productdata();
-      setData(product);
-    };
-    fetchdata();
+    productdata();
   }, []);
   return (
     <div className="2xl:container mx-auto mt-10">
@@ -25,7 +21,7 @@ const Productlist: React.FC = () => {
               className="border border-slate-300 py-5 flex flex-col items-center justify-center rounded gap-2"
             >
               <img
-                src={item.images}
+                src={item.imageurl}
                 alt="phone"
                 className="w-[300px] h-[350px]"
               />
