@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Electronics from "./electronics";
 import products from "../interface/products";
+import Card from "./card";
+import Carousel from "react-multi-carousel";
 import axios from "axios";
+import { banners } from "../assets/image";
+import "react-multi-carousel/lib/styles.css";
 
 const Productlist: React.FC = () => {
   const [data, setData] = useState<products[]>([]);
@@ -38,27 +41,25 @@ const Productlist: React.FC = () => {
   return (
     <div className="2xl:container mx-auto mt-10">
       <div className="mx-auto w-[90%]">
-        <h2 className="text-2xl font-semibold text-center mb-8">
-          Product List
-        </h2>
-        <Carousel responsive={responsive} itemClass="px-4" showDots={true}>
+        <div className="my-8">
+          <h1 className="text-3xl font-medium my-6">
+            Shop our Top Electronics Category
+          </h1>
+          <Electronics />
+        </div>
+        <div className="my-16">
+          <img src={banners} alt="banners" />
+        </div>
+        <h2 className="text-3xl font-medium mb-8">Product List</h2>
+        <Carousel responsive={responsive} itemClass="px-4">
           {data.map((item: products) => {
             return (
-              <div key={item.id} className="flex flex-col items-center">
-                <img
-                  src={item.imageurl}
-                  alt={item.title}
-                  className="w-[340px] h-[350px] object-cover border-t border-r border-l border-slate-400"
-                />
-                <div className="py-2 text-center flex flex-col justify-between flex-grow border-l border-r border-b border-slate-400 w-full">
-                  <p className="text-black font-medium text-lg py-1">
-                    {item.title}
-                  </p>
-                  <p className="text-green-600 text-xl font-semibold py-1">
-                    {item.price}
-                  </p>
-                </div>
-              </div>
+              <Card
+                id={item.id}
+                title={item.title}
+                price={item.price}
+                imageurl={item.imageurl}
+              />
             );
           })}
         </Carousel>

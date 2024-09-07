@@ -14,5 +14,6 @@ model product {
   imageurl    String
   description String
   ratings     Float
+  category String @default("fashion")
 }
 

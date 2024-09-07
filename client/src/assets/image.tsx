@@ -4,20 +4,62 @@ export const logo: string =
 export const errorpage: string =
   "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/404_page_cover.jpg?updatedAt=1724332368542";
 
-export const demologo: string =
-  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/demologo.webp?updatedAt=1725025915986";
-
-export const animatedcart: string =
-  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/animated_cart.gif?updatedAt=1725110625613";
-
 export const banner1: string =
-  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banner1.jpg?updatedAt=1725127169408";
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/hero-section?updatedAt=1725679894990";
 
 export const banner2: string =
-  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banner2.avif?updatedAt=1725127169504";
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banner1.jpg?updatedAt=1725127169408";
 
 export const banner3: string =
-  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banner3.png?updatedAt=1725127169419";
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/hero-section-2?updatedAt=1725692241469";
 
 export const banner4: string =
-  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banner4.avif?updatedAt=1725127169466";
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banner3.png?updatedAt=1725127169419";
+
+export const visa: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/visa?updatedAt=1725708879790";
+
+export const mastercard: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/Mastercard?updatedAt=1725708879799";
+
+export const visaelectron: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/visa%20electron?updatedAt=1725708879802";
+
+export const paypal: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/paypal?updatedAt=1725708879793";
+
+export const skrill: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/skrill?updatedAt=1725708879784";
+
+export const maestro: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/maestro.png?updatedAt=1725711597582";
+
+export const facebook: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/facebook.webp?updatedAt=1725712157903";
+
+export const twitter: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/x.webp?updatedAt=1725712186712";
+
+export const insta: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/insta.avif?updatedAt=1725712227443";
+
+export const headphone: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/Headphone.avif?updatedAt=1725727405793";
+
+export const smartwatch: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/smartwatch.avif?updatedAt=1725727405822";
+
+export const laptop: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/Laptop.avif?updatedAt=1725727405847";
+
+export const charger: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/charger.avif?updatedAt=1725727405601";
+
+export const echodot: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/Echo%20dot.jpg?updatedAt=1725727405760";
+
+export const smartphone: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/smartphone.png?updatedAt=1725727457047";
+
+export const banners: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banners?updatedAt=1725729750939";

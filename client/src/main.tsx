@@ -4,19 +4,21 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import Login from "./pages/login.tsx";
 import Productdetail from "./components/productdetail.tsx";
+import Errorpage from "./pages/errorpage.tsx";
 import "./styles/index.css";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Errorpage />,
   },
   {
-    path: "/login",
+    path: "login",
     element: <Login />,
   },
   {
-    path: "/products/:id",
+    path: "products/:id",
     element: <Productdetail />,
   },
 ]);

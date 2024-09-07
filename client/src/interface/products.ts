@@ -5,4 +5,5 @@ export default interface products {
   imageurl: string;
   description?: string;
   ratings?: number;
+  category?: string;
 }
