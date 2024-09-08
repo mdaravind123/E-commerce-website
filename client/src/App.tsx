@@ -1,10 +1,14 @@
 import React from "react";
-import Home from "./pages/home";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+import { Outlet } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
     <div>
-      <Home />
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   );
 };

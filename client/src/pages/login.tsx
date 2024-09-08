@@ -1,30 +1,31 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faKey } from "@fortawesome/free-solid-svg-icons";
 
 const Login: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-full gap-2">
-      <div className="flex flex-col gap-2 w-[420px] justify-center items-center border border-[hsla(0,0%,0%,0.5)] h-[420px]">
-        <div className="flex items-center gap-2 border border-[hsla(0,0%,0%,0.5)] p-2">
-          <FontAwesomeIcon
-            icon={faEnvelope}
-            className="w-6 h-6 text-slate-600"
-          />
-          <input
-            type="email"
-            className="w-[320px] outline-none"
-            placeholder="Email"
-          />
-        </div>
-        <div className="flex items-center gap-2 border border-[hsla(0,0%,0%,0.5)] p-2">
-          <FontAwesomeIcon icon={faKey} className="w-6 h-6 text-slate-600" />
-          <input
-            type="password"
-            className="w-[320px] outline-none"
-            placeholder="Password"
-          />
+    <div className="2xl:container mx-auto">
+      <div className="w-[90%] mx-auto">
+        <div className="flex flex-col justify-center items-center w-full h-screen">
+          <div>
+            <div>
+              <input type="email" />
+            </div>
+            <div>
+              <input type="password" />
+            </div>
+            <div className="flex gap-2">
+              <input type="checkbox" />
+              <p>Show Password</p>
+            </div>
+            <a href="#">forgot password?</a>
+            <button>Login</button>
+            <p>Or sign in with Social Platforms</p>
+            <div className="flex gap-2">
+              <img src="#" alt="facebook" />
+              <img src="#" alt="twitter" />
+              <img src="#" alt="Google" />
+              <img src="#" alt="LinkedIn" />
+            </div>
+          </div>
         </div>
       </div>
     </div>

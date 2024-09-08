@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
-import Electronics from "./electronics";
 import products from "../interface/products";
 import Card from "./card";
 import Carousel from "react-multi-carousel";
-import axios from "axios";
-import { banners } from "../assets/image";
+import { fetchProducts } from "../api/productApi";
+import { ShimmerSimpleGallery } from "react-shimmer-effects";
 import "react-multi-carousel/lib/styles.css";
 
 const Productlist: React.FC = () => {
   const [data, setData] = useState<products[]>([]);
-
-  const productdata = async () => {
-    let product = await axios.get<products[]>("http://localhost:3333/");
-    setData(product.data);
+  const [loading, setLoading] = useState<boolean>(false);
+  const loadProducts = async () => {
+    setLoading(true);
+    try {
+      const productsData = await fetchProducts();
+      setData(productsData);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    productdata();
+    loadProducts();
   }, []);
 
   const responsive = {
@@ -37,32 +43,28 @@ const Productlist: React.FC = () => {
       items: 1,
     },
   };
-
   return (
-    <div className="2xl:container mx-auto mt-10">
+    <div className="2xl:container mx-auto mt-12 mb-3">
       <div className="mx-auto w-[90%]">
-        <div className="my-8">
-          <h1 className="text-3xl font-medium my-6">
-            Shop our Top Electronics Category
-          </h1>
-          <Electronics />
+        <div>
+          <h2 className="text-3xl font-medium mb-4">Product List</h2>
+          {loading ? (
+            <ShimmerSimpleGallery card imageHeight={300} caption />
+          ) : (
+            <Carousel responsive={responsive} itemClass="px-4">
+              {data.map((item: products) => {
+                return (
+                  <Card
+                    id={item.id}
+                    title={item.title}
+                    price={item.price}
+                    imageurl={item.imageurl}
+                  />
+                );
+              })}
+            </Carousel>
+          )}
         </div>
-        <div className="my-16">
-          <img src={banners} alt="banners" />
-        </div>
-        <h2 className="text-3xl font-medium mb-8">Product List</h2>
-        <Carousel responsive={responsive} itemClass="px-4">
-          {data.map((item: products) => {
-            return (
-              <Card
-                id={item.id}
-                title={item.title}
-                price={item.price}
-                imageurl={item.imageurl}
-              />
-            );
-          })}
-        </Carousel>
       </div>
     </div>
   );

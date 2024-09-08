@@ -1,16 +1,16 @@
 import React from "react";
-import Navbar from "../components/navbar";
 import Imageslider from "../components/imageslider";
+import Electronics from "../components/electronics";
+import Brandbanner from "../components/brandbanner";
 import Productlist from "../components/productlist";
-import Footer from "../components/footer";
 
 const Home: React.FC = () => {
   return (
     <div>
-      <Navbar />
       <Imageslider />
+      <Electronics />
+      <Brandbanner />
       <Productlist />
-      <Footer />
     </div>
   );
 };
