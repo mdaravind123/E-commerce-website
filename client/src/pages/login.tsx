@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Login: React.FC = () => {
   return (
@@ -6,8 +8,9 @@ const Login: React.FC = () => {
       <div className="w-[90%] mx-auto">
         <div className="flex flex-col justify-center items-center w-full h-screen">
           <div>
-            <div>
-              <input type="email" />
+            <div className="flex gap-2 shadow-lg shadow-[hsla(0,0%,0%,0.1)]">
+              <FontAwesomeIcon icon={faEnvelope} className="text-slate-500" />
+              <input type="email" className="p-2 outline-none w-[350px]" />
             </div>
             <div>
               <input type="password" />

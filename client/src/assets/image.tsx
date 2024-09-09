@@ -63,3 +63,6 @@ export const smartphone: string =
 
 export const banners: string =
   "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/banners?updatedAt=1725729750939";
+
+export const applebanner: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/Screenshot%202024-09-07%20230226.png?updatedAt=1725730366297";

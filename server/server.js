@@ -83,7 +83,7 @@ app.post("/post", async (req, res) => {
 // To update parameters of particular record
 app.put("/update/:id", async (req, res) => {
   const { id } = req.params;
-  const { title, price, imageurl, description, ratings } = req.body;
+  const { title, price, imageurl, description, ratings, category } = req.body;
   try {
     const parsedid = parseInt(id);
     const updateddata = await prisma.product.update({
@@ -94,6 +94,7 @@ app.put("/update/:id", async (req, res) => {
         imageurl: imageurl,
         description: description,
         ratings: ratings,
+        category: category,
       },
     });
     res.status(200).json(updateddata);
