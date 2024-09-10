@@ -1,20 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Imageslider from "../components/imageslider";
 import Electronics from "../components/electronics";
 import Brandbanner from "../components/brandbanner";
 import Productlist from "../components/productlist";
 import Applebrandbanner from "../components/applebrandbanner";
-import AOS from "aos";
-import "aos/dist/aos.css"; // Import the AOS CSS
+import Mostsellingproduct from "../components/mostsellingproduct";
+import Service from "../components/service";
 
 const Home: React.FC = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration (in milliseconds)
-      once: true, // Whether animation should happen only once
-    });
-  }, []);
-
   return (
     <div>
       <div data-aos="fade-up">
@@ -31,6 +24,12 @@ const Home: React.FC = () => {
       </div>
       <div data-aos="fade-left">
         <Applebrandbanner />
+      </div>
+      <div data-aos="fade-up">
+        <Mostsellingproduct />
+      </div>
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <Service />
       </div>
     </div>
   );

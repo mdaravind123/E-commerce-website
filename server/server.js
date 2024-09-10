@@ -61,7 +61,8 @@ app.get("/:id", async (req, res) => {
 
 //To create a new record in table
 app.post("/post", async (req, res) => {
-  const { id, title, price, imageurl, description, ratings } = req.body;
+  const { id, title, price, imageurl, description, ratings, category } =
+    req.body;
   console.log(req.body);
   try {
     const postdata = await prisma.product.create({
@@ -72,6 +73,7 @@ app.post("/post", async (req, res) => {
         imageurl: imageurl,
         description: description,
         ratings: ratings,
+        category: category,
       },
     });
     res.json(postdata);

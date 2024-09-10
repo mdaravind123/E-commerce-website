@@ -66,3 +66,12 @@ export const banners: string =
 
 export const applebanner: string =
   "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/Screenshot%202024-09-07%20230226.png?updatedAt=1725730366297";
+
+export const faq: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/faq.png?updatedAt=1725986147353";
+
+export const homeDelivery: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/Home%20Delivery.jpg?updatedAt=1725986245384";
+
+export const OnlinePayment: string =
+  "https://ik.imagekit.io/bagqqfegz/E%20Commerce%20Website/online%20payment.webp?updatedAt=1725986419823";

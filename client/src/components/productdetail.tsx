@@ -37,10 +37,11 @@ const Productdetail: React.FC = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getProduct();
     const timer = setTimeout(() => {
       setShowLoader(false);
-    }, 300);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [id]);
