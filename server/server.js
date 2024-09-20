@@ -61,10 +61,10 @@ app.get("/:id", async (req, res) => {
     if (!productdata) {
       res.status(404).json({ msg: `ID not found!` });
     } else {
-      res.status(201).json(productdata);
+      res.status(200).json(productdata);
     }
   } catch (err) {
-    res.status(404).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -84,13 +84,13 @@ app.post("/post", async (req, res) => {
         category: category,
       },
     });
-    res.json(postdata);
+    res.status(201).json(postdata);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// To update parameters of particular record
+// To update parameters of a particular record
 app.put("/update/:id", async (req, res) => {
   const { id } = req.params;
   const { title, price, imageurl, description, ratings, category } = req.body;
@@ -114,7 +114,7 @@ app.put("/update/:id", async (req, res) => {
 });
 
 // To delete a particular record
-app.delete("/delete:id", async (req, res) => {
+app.delete("/delete/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const parsedid = parseInt(id);
