@@ -3,7 +3,7 @@ import axios from "axios";
 import products from "../interface/products";
 
 // Define the base URL for the API
-const BASE_URL = "https://e-commerce-website-qyt6.onrender.com/";
+const BASE_URL = "https://e-commerce-website-qyt6.onrender.com";
 
 // Fetch all products
 export const fetchProducts = async (): Promise<products[]> => {

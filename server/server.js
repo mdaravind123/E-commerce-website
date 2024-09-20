@@ -1,11 +1,27 @@
 const express = require("express");
-
 const cors = require("cors");
 
 // Instance of express server
 const app = express();
 
-app.use(cors());
+// Middleware to set Content-Security-Policy
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self' https://e-commerce-website-hu1lhyh6z-m-d-aravinds-projects.vercel.app"
+  );
+  next();
+});
+
+// Configure CORS to allow your frontend
+app.use(
+  cors({
+    origin:
+      "https://e-commerce-website-hu1lhyh6z-m-d-aravinds-projects.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
@@ -14,7 +30,6 @@ const port = 3333;
 
 // Create Prisma client
 const { PrismaClient } = require("@prisma/client");
-
 const prisma = new PrismaClient();
 
 // To get access to all data from db
@@ -32,38 +47,31 @@ app.get("/", async (req, res) => {
   }
 });
 
-//Accessing Details of product with specific id
+// Accessing Details of product with specific id
 app.get("/:id", async (req, res) => {
   const { id } = req.params;
   const parsedid = parseInt(id);
   try {
-    try {
-      const productdata = await prisma.product.findUnique({
-        where: {
-          id: parsedid,
-        },
-      });
+    const productdata = await prisma.product.findUnique({
+      where: {
+        id: parsedid,
+      },
+    });
 
-      if (!productdata) {
-        res.status(404).json({ msg: `ID not found!` });
-      } else {
-        res.status(201).json(productdata);
-      }
-    } catch (err) {
-      res.status(404).json({ error: err.message });
+    if (!productdata) {
+      res.status(404).json({ msg: `ID not found!` });
+    } else {
+      res.status(201).json(productdata);
     }
   } catch (err) {
-    res.status(500).json({
-      error: `Internal Server Error`,
-    });
+    res.status(404).json({ error: err.message });
   }
 });
 
-//To create a new record in table
+// To create a new record in table
 app.post("/post", async (req, res) => {
   const { id, title, price, imageurl, description, ratings, category } =
     req.body;
-  console.log(req.body);
   try {
     const postdata = await prisma.product.create({
       data: {
@@ -105,12 +113,13 @@ app.put("/update/:id", async (req, res) => {
   }
 });
 
-//to delete a particular record
-app.delete("/delete:id", (req, res) => {
-  const { id } = req.body;
+// To delete a particular record
+app.delete("/delete:id", async (req, res) => {
+  const { id } = req.params;
   try {
-    const deletedata = prisma.product.delete({
-      where: { id: id },
+    const parsedid = parseInt(id);
+    const deletedata = await prisma.product.delete({
+      where: { id: parsedid },
     });
     res
       .status(200)
@@ -120,6 +129,7 @@ app.delete("/delete:id", (req, res) => {
   }
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`Port is running on ${port} Successfully!`);
 });
