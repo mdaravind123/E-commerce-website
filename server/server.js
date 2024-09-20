@@ -4,20 +4,16 @@ const cors = require("cors");
 // Instance of express server
 const app = express();
 
-// Middleware to set Content-Security-Policy
-app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self' https://e-commerce-website-hu1lhyh6z-m-d-aravinds-projects.vercel.app"
-  );
-  next();
-});
-
-// Configure CORS to allow your frontend
+// Middleware to configure CORS dynamically
 app.use(
   cors({
-    origin:
-      "https://e-commerce-website-hu1lhyh6z-m-d-aravinds-projects.vercel.app",
+    origin: (origin, callback) => {
+      if (!origin || origin.includes("vercel.app")) {
+        callback(null, true); // Allow all Vercel origins
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
@@ -64,7 +60,7 @@ app.get("/:id", async (req, res) => {
       res.status(200).json(productdata);
     }
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(404).json({ error: err.message });
   }
 });
 
@@ -84,13 +80,13 @@ app.post("/post", async (req, res) => {
         category: category,
       },
     });
-    res.status(201).json(postdata);
+    res.json(postdata);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// To update parameters of a particular record
+// To update parameters of particular record
 app.put("/update/:id", async (req, res) => {
   const { id } = req.params;
   const { title, price, imageurl, description, ratings, category } = req.body;
